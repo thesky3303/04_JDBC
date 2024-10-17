@@ -143,7 +143,7 @@ public class JDBCExample1 {
 				// float, double 	NUMBER (정수 + 실수)
 				// java.sql.Date	DATE
 				String empId = rs.getString("EMP_ID");
-				String empNAme = rs.getString("EMP_NAME");
+				String empName = rs.getString("EMP_NAME");
 				String depeCode = rs.getString("DEPT_CODE");
 				String jobCode = rs.getString("JOB_CODE");
 				int salary = rs.getInt("SALARY");
@@ -151,7 +151,7 @@ public class JDBCExample1 {
 				
 				System.out.printf(
 						"사번 : %s / 이름 : %s / 부서코드 : %s / 직급코드 : %s / 급여 : %d / 입사일 : %s \n",
-						empId,empNAme,depeCode,jobCode,salary,hireDate.toString()
+						empId,empName,depeCode,jobCode,salary,hireDate.toString()
 				);
 				
 				
