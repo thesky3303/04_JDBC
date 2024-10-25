@@ -2,7 +2,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -50,13 +50,16 @@
     <tbody>
       <c:forEach items="${todoList}" varStatus="vs" var="todo">
         <tr>
-        	
           <th>${vs.count}</th> <%-- 단순 출력 번호 --%>
           <th>${todo.todoNo}</th> <%-- todoNo --%>
 
           <td>
-          <%-- 제목 --%>
-            <a href="">${todo.title}</a>
+          <%-- 제목 클릭 시
+          		인덱스 번호를 이용하여 todoList의
+          		인덱스 번째 요소 내용을 조회하기
+          		
+          --%>
+            <a href="/todo/detail?todoNo=${todo.todoNo}">${todo.title}</a>
           </td>
 
           <%-- 완료 여부 --%>

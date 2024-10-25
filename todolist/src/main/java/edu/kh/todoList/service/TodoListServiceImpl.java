@@ -1,6 +1,9 @@
 package edu.kh.todoList.service;
 
-import static edu.kh.todoList.common.JDBCTemplate.*;
+import static edu.kh.todoList.common.JDBCTemplate.close;
+import static edu.kh.todoList.common.JDBCTemplate.commit;
+import static edu.kh.todoList.common.JDBCTemplate.getConnction;
+import static edu.kh.todoList.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
 import java.util.HashMap;
@@ -51,6 +54,63 @@ public class TodoListServiceImpl implements TodoListService{
 		close(conn);
 		
 		return result;
+	}
+
+	@Override
+	public Todo todoDetailView(int todoNo) throws Exception {
+		
+		Connection conn = getConnction();
+		
+		Todo todo = dao.todoDetailView(conn, todoNo);
+		
+		close(conn);
+		
+		return todo;
+	}
+
+	@Override
+	public int todoComplete(int todoNo) throws Exception {
+		
+		Connection conn = getConnction();
+		
+		int result = dao.todoComplete(conn, todoNo);
+		
+		if(result > 0) commit(conn);
+		else 		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	@Override
+	public int todoUpdate(int todoNo, String title, String detail) throws Exception {
+		
+	Connection conn = getConnction();
+		
+		int result = dao.todoUpdate(conn, todoNo, title, detail);
+		
+		if(result > 0) commit(conn);
+		else 		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	@Override
+	public int todoDelte(int todoNo) throws Exception {
+		Connection conn = getConnction();
+		
+		int result = dao.todoDelete(conn, todoNo);
+		
+		if(result > 0) commit(conn);
+		else 		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	
 	}
 	
 	

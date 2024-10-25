@@ -47,11 +47,7 @@ public class TodoAddServlet extends HttpServlet {
 			// -> @WebServlet("/") 가 작성된 Servlet을 재요청
 			
 			// redirect는 무조건 GET 방식!
-			
-			
-			
-			
-			
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();

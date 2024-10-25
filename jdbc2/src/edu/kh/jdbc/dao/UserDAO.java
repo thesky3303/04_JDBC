@@ -1,11 +1,12 @@
 package edu.kh.jdbc.dao;
 
-import static edu.kh.jdbc.common.JDBCTemplate.*;
+import static edu.kh.jdbc.common.JDBCTemplate.close;
 
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +77,7 @@ public class UserDAO {
 			}
 			
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			
 		} finally {
